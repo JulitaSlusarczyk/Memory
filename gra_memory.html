@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="main.css">
+	</head>
+	
+	<body>
+		<header>
+			<h1>Gra w pamięć</h1>
+			<p>Projekt na tiwp - gra w pamięć</p>
+		</header>
+
+		<main>
+			<div id="wybieranie" style="text-align: center;">
+				Ilość kafelków: <br/>
+				<input id="step" type="range" min="2" max="30" step="2" value="8" onchange="updateTextInput(this.value);">
+				<div class="score2">8</div>
+				<br/>
+				<input type="submit" value="Zagraj" onclick="gra()">
+			</div>
+
+			<div class="board" style="visibility: hidden;">
+
+					<div class="newGame">
+							<input type="submit" value="Nowa gra" onclick="nowaGra()" style="margin-bottom:20px;"> 
+					</div>
+					<div class="score">Turn counter: 0</div>
+
+					<div class="card" id="c0" onclick="revealCard(0)" style="visibility: hidden;"></div>
+					<div class="card" id="c1" onclick="revealCard(1)" style="visibility: hidden;"></div>
+					<div class="card" id="c2" onclick="revealCard(2)" style="visibility: hidden;"></div>
+					<div class="card" id="c3" onclick="revealCard(3)" style="visibility: hidden;"></div>
+					<div class="card" id="c4" onclick="revealCard(4)" style="visibility: hidden;"></div>
+
+					<div class="card" id="c5" onclick="revealCard(5)" style="visibility: hidden;"></div>
+					<div class="card" id="c6" onclick="revealCard(6)" style="visibility: hidden;"></div>
+					<div class="card" id="c7" onclick="revealCard(7)" style="visibility: hidden;"></div>
+					<div class="card" id="c8" onclick="revealCard(8)" style="visibility: hidden;"></div>
+					<div class="card" id="c9" onclick="revealCard(9)" style="visibility: hidden;"></div>
+
+					<div class="card" id="c10" onclick="revealCard(10)" style="visibility: hidden;"></div>
+					<div class="card" id="c11" onclick="revealCard(11)" style="visibility: hidden;"></div>
+					<div class="card" id="c12" onclick="revealCard(12)" style="visibility: hidden;"></div>
+					<div class="card" id="c13" onclick="revealCard(13)" style="visibility: hidden;"></div>
+					<div class="card" id="c14" onclick="revealCard(14)" style="visibility: hidden;"></div>
+
+					<div class="card" id="c15" onclick="revealCard(15)" style="visibility: hidden;"></div>
+					<div class="card" id="c16" onclick="revealCard(16)" style="visibility: hidden;"></div>
+					<div class="card" id="c17" onclick="revealCard(17)" style="visibility: hidden;"></div>
+					<div class="card" id="c18" onclick="revealCard(18)" style="visibility: hidden;"></div>
+					<div class="card" id="c19" onclick="revealCard(19)" style="visibility: hidden;"></div>
+
+				</div>
+
+
+		</main>
+
+		<script src="jquery-3.3.1.min.js"></script>
+		<script src="memory.js"></script>
+	</body>
+</html>
