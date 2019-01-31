@@ -1,11 +1,14 @@
 var wybrane = [];
-var cardss = ["o1.png", "o2.png", "o3.png","o4.png","o5.png","o6.png", "o7.png", "o8.png","o9.png","o10.png","o11.png","o12.png", "o13.png", "o14.png","o15.png"];
+var cards_all = ["o1.png", "o2.png", "o3.png","o4.png","o5.png","o6.png", "o7.png", "o8.png","o9.png","o10.png","o11.png","o12.png", "o13.png", "o14.png","o15.png"];
+var cards = [];
 
 var ilosc=8;
 var oneVisible = false;
 var turnCounter = 0;
 var visible_nr;
 var lock = false;
+var car;
+var n=1;
 
 function revealCard(nr)
 {
@@ -55,8 +58,16 @@ function hide2Cards(nr1, nr2)
 {
     $('#c'+nr1).css('opacity', '0');
     $('#c'+nr2).css('opacity', '0');
+    car-=1;
 
     lock=false;
+    if(car==0)
+    {
+        var imie = prompt("Koniec gry! Podaj swoje imię:", "");
+        if(imie==null || imie=="") imie="Nieznany";
+            $('.wyniki').append("<li>"+n+". "+imie+'</li>');
+            n++;
+    }
 }
 
 function restore2Cards(nr1,nr2)
@@ -96,16 +107,13 @@ function updateTextInput(num)
 
 function gra()
 {
-    //wyswietlanie planszy z kartami
-    var cards = [];
-    shuffle(cardss);
-    for(var i=0; i<(ilosc/2) ;i++)
+    car=ilosc/2;
+    for(var j=0; j<ilosc/2;j++)
     {
-        cards[i]=cardss[i];
-        cards[i+(ilosc/2)]=cardss[i];
+        cards[j]=cards_all[j];
+        cards[j+(ilosc/2)]=cards_all[j];
     }
     shuffle(cards);
-    
     $('#wybieranie').css('display','none');
     $('.board').css('visibility', 'visible');
     for(var i=0; i<ilosc ;i++)
