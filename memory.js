@@ -1,6 +1,5 @@
-var karty = ["o1.png", "o2.png", "o3.png","o4.png","o5.png","o6.png","o1-kopia.png", "o2-kopia.png", "o3-kopia.png","o4-kopia.png","o5-kopia.png","o6-kopia.png"];
 var wybrane = [];
-var cards = ["o1.png", "o2.png", "o3.png","o4.png","o5.png","o1.png", "o2.png", "o3.png","o6.png","o4.png","o5.png","o6.png", "o2.png", "o3.png","o4.png","o5.png","o1.png", "o2.png", "o3.png","o4.png","o5.png"];
+var cardss = ["o1.png", "o2.png", "o3.png","o4.png","o5.png","o6.png", "o7.png", "o8.png","o9.png","o10.png","o11.png","o12.png", "o13.png", "o14.png","o15.png"];
 
 var ilosc=8;
 var oneVisible = false;
@@ -56,6 +55,7 @@ function hide2Cards(nr1, nr2)
 {
     $('#c'+nr1).css('opacity', '0');
     $('#c'+nr2).css('opacity', '0');
+
     lock=false;
 }
 
@@ -72,6 +72,22 @@ function restore2Cards(nr1,nr2)
     lock=false;
 }
 
+function shuffle(array) 
+{   
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) 
+    {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+ 
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+ 
+    return array;
+}
+
 function updateTextInput(num)
 {
     ilosc=num;
@@ -81,6 +97,15 @@ function updateTextInput(num)
 function gra()
 {
     //wyswietlanie planszy z kartami
+    var cards = [];
+    shuffle(cardss);
+    for(var i=0; i<(ilosc/2) ;i++)
+    {
+        cards[i]=cardss[i];
+        cards[i+(ilosc/2)]=cardss[i];
+    }
+    shuffle(cards);
+    
     $('#wybieranie').css('display','none');
     $('.board').css('visibility', 'visible');
     for(var i=0; i<ilosc ;i++)
@@ -90,7 +115,6 @@ function gra()
 }
 function nowaGra()
 {
-    //tutaj musisz wstawic resetowanie postepow poprzedniej gry
     $('.board').css('visibility', 'hidden');
     for(var i=0; i<ilosc ;i++)
     {
