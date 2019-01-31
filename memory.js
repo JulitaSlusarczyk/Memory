@@ -65,8 +65,11 @@ function hide2Cards(nr1, nr2)
     {
         var imie = prompt("Koniec gry! Podaj swoje imię:", "");
         if(imie==null || imie=="") imie="Nieznany";
-            $('.wyniki').append("<li>"+n+". "+imie+'</li>');
-            n++;
+
+        $('.wyniki').append("<li>"+n+". "+imie+" "+turnCounter+'</li>'); 
+        n++;
+
+        nowaGra();
     }
 }
 
